@@ -12,15 +12,16 @@ export default function Browser() {
   return (
     <div className="h-full w-full border border-black overflow-auto">
       <Logo />
-      <Panel setOpenTextEditor={setOpenTextEditor} />
-
+      <Panel
+        setOpenTextEditor={setOpenTextEditor}
+        openTextEditor={openTextEditor}
+      />
+      <Canvas setCollage={setCollage} collage={collage} />
       {openTextEditor || (
-        <div>
-          <Canvas setCollage={setCollage} collage={collage} />
+        <div className="w-full">
           <Album setCollage={setCollage} />
         </div>
       )}
-
       {openTextEditor && <TextEditor />}
     </div>
   );

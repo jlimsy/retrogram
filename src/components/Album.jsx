@@ -44,7 +44,7 @@ export default function Album({ setCollage }) {
     const url = [];
 
     for (let i = 0; i < n; i++) {
-      url.push(`https://picsum.photos/150?random=${i}`);
+      url.push(`https://picsum.photos/200?random=${i}`);
     }
 
     return url;
@@ -58,7 +58,7 @@ export default function Album({ setCollage }) {
   }, []);
 
   return (
-    <div className="grid grid-cols-3 lg:grid-cols-5 w-fit ">
+    <div className="flex flex-wrap">
       {imageUrls?.map((url, index) => (
         <Draggable
           key={index}
