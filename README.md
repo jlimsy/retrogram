@@ -1,11 +1,11 @@
-# RetroGram
+# RetroGram 📸
 
 Instagram reimagined for the 90s - on a desktop browser
 
 ## **_NOW WITH ENHANCED FEATURES!_**
 
-- Generate beautiful photo collages with a drag and drop feature!
-- Captivate your followers by formatting your captions!
+- 🏞️ Generate beautiful photo collages with a drag and drop feature!
+- ✏️ Captivate your followers by formatting your captions!
 
 ## Inspiration for UI:
 
