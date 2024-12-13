@@ -4,8 +4,9 @@ Instagram reimagined for the 90s - on a desktop browser
 
 ## **_NOW WITH ENHANCED FEATURES!_**
 
-- 🏞️ Generate beautiful photo collages with a drag and drop feature!
-- ✏️ Captivate your followers by formatting your captions!
+- 🏞️ Generate beautiful photo collages with a drag and drop feature,
+- ✏️ Captivate your followers by formatting your captions,
+- 📰 Stay up to date with the latest trends on your feed!
 
 ## Inspiration for UI:
 
@@ -17,3 +18,8 @@ Color palette: https://app.uxcel.com/lessons/social-networks--messengers-color-p
 - Javascript
 - React
 - Tailwind CSS
+
+### Libaries:
+
+- [React-Draggable](https://www.npmjs.com/package/react-draggable)
+- [ReactQuill](https://www.npmjs.com/package/react-quill)
