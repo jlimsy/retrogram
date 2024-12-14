@@ -57,11 +57,18 @@
     --chart-5: 340 75% 55%;
   }
 }
+
 @layer base {
   * {
     @apply border-border;
   }
   body {
     @apply bg-[#008080] text-foreground font-mono;
+  }
+}
+
+@layer components {
+  .box-border {
+    @apply border-t-2 border-l-2 border-r-8 border-b-8 border-black ;
   }
 }

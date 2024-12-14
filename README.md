@@ -5,7 +5,7 @@ Instagram reimagined for the 90s - on a desktop browser
 ## **_NOW WITH ENHANCED FEATURES!_**
 
 - 🏞️ Generate beautiful photo collages with a drag and drop feature,
-- ✏️ Captivate your followers by formatting your captions,
+- ✏️ Captivate your followers by formatting inspiring captions,
 - 🎉 Stay up to date with the latest trends on your feed!
 
 ## Inspiration for UI:

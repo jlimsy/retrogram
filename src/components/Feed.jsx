@@ -1,3 +1,3 @@
 export default function Feed() {
-  return <div>Feed</div>;
+  return <div className="h-full w-full">Feed</div>;
 }
