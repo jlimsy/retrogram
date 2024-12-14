@@ -12,11 +12,13 @@ export default function Application() {
   const [openTextEditor, setOpenTextEditor] = useState(false);
   const [openFeed, setOpenFeed] = useState(false);
   const [openAlbum, setOpenAlbum] = useState(true);
+  const [isEditing, setIsEditing] = useState(true);
+
+  console.log("collage", collage);
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col ">
       <section className="h-content">
-        <Logo />
         <Panel
           setOpenTextEditor={setOpenTextEditor}
           openTextEditor={openTextEditor}
@@ -27,17 +29,29 @@ export default function Application() {
         />
       </section>
 
-      <section className="flex-1 overflow-auto">
-        {openFeed ? (
-          <Feed />
-        ) : (
-          <div className="flex flex-rows-2">
-            <div className="h-96">
-              <Canvas setCollage={setCollage} collage={collage} />
+      <section className="flex-1 overflow-auto bg-[#f5e1a4]">
+        {openFeed && (
+          <div className="w-full">
+            <Feed />
+          </div>
+        )}
+        {openTextEditor && <TextEditor openTextEditor collage={collage} />}
+
+        {openAlbum && (
+          <div className="flex flex-col md:grid md:grid-cols-3">
+            <div className="md:col-span-1 border border-black bg-white overflow-auto">
+              <Canvas
+                setCollage={setCollage}
+                collage={collage}
+                isEditing={isEditing}
+              />
             </div>
-            <div className="flex-1">
-              {openTextEditor || <Album setCollage={setCollage} />}
-              {openTextEditor && <TextEditor />}
+            <div className="md:col-span-2 border border-black bg-white">
+              <Album
+                setCollage={setCollage}
+                isEditing={isEditing}
+                setIsEditing={setIsEditing}
+              />
             </div>
           </div>
         )}

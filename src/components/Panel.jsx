@@ -1,4 +1,5 @@
 import { Button } from "./ui/button";
+import Logo from "./Logo";
 
 export default function Panel({
   setOpenTextEditor,
@@ -9,38 +10,76 @@ export default function Panel({
   openAlbum,
 }) {
   return (
-    <div className="flex m-2 justify-between">
-      <div className={`flex-1 ${openTextEditor ? "block" : "hidden"}`}>
-        <Button onClick={() => setOpenTextEditor(false)}>Previous</Button>
+    <div className="flex justify-between items-center m-2  px-4">
+      <div>
+        <Button
+          size="sm"
+          alt="previous"
+          variant="ghost"
+          className={`${openTextEditor ? "inline-block" : "hidden"}`}
+          onClick={() => {
+            setOpenTextEditor(false);
+            setOpenAlbum(true);
+          }}
+        >
+          <img
+            src="https://unpkg.com/pixelarticons@1.8.1/svg/arrow-left.svg"
+            className="h-8 w-8"
+          />
+        </Button>
       </div>
 
-      <div className="ml-auto ">
+      <div>
+        <Logo />
+      </div>
+
+      <div className="flex items-center gap-4">
         <Button
-          className={`${openAlbum ? "block" : "hidden"}`}
+          alt="next"
+          size="sm"
+          variant="ghost"
+          className={`${openAlbum ? "inline-block" : "hidden"}`}
           onClick={() => {
             setOpenTextEditor(true);
             setOpenAlbum(false);
           }}
         >
-          Next
+          <img
+            src="https://unpkg.com/pixelarticons@1.8.1/svg/arrow-right.svg"
+            className="h-8 w-8"
+          />
         </Button>
         <Button
-          className={`${openTextEditor ? "block" : "hidden"}`}
+          alt="post"
+          size="sm"
+          variant="ghost"
+          className={`${openTextEditor ? "inline-block" : "hidden"}`}
           onClick={() => {
-            setOpenTextEditor(false);
             setOpenFeed(true);
+            setOpenAlbum(false);
+            setOpenTextEditor(false);
           }}
         >
-          Post
+          <img
+            src="https://unpkg.com/pixelarticons@1.8.1/svg/check-double.svg"
+            className="h-8 w-8"
+          />
         </Button>
         <Button
-          className={`${openFeed ? "block" : "hidden"}`}
+          alt="add"
+          size="sm"
+          variant="ghost"
+          className={`${openFeed ? "block" : "hidden"} `}
           onClick={() => {
-            openAlbum(true);
-            openFeed(false);
+            setOpenAlbum(true);
+            setOpenTextEditor(false);
+            setOpenFeed(false);
           }}
         >
-          New
+          <img
+            src="https://unpkg.com/pixelarticons@1.8.1/svg/image-plus.svg"
+            className="h-8 w-8"
+          />
         </Button>
       </div>
     </div>

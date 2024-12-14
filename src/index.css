@@ -60,10 +60,10 @@
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border text-sm;
   }
   body {
-    @apply bg-[#008080] text-foreground font-mono;
+    @apply bg-white text-foreground font-mono ;
   }
 }
 
@@ -74,4 +74,5 @@
   .box-border-sm {
     @apply border-t border-l border-r-4 border-b-4 border-black ;
   }
+ 
 }

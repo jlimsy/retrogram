@@ -1,43 +1,57 @@
 import { useState, useEffect } from "react";
-import Draggable from "react-draggable";
+// import { Progress } from "@/components/ui/progress";
 
 const NUM_IMAGES = 15;
 
-export default function Album({ setCollage }) {
+export default function Album({ setCollage, setIsEditing }) {
+  // const [progress, setProgress] = useState(25);
   const [imageUrls, setImageUrls] = useState([]);
-  const [positions, setPositions] = useState({});
 
-  // Handle the start event (triggered when dragging starts)
-  const handleStart = (e, data) => {
-    console.log("Drag started", data);
+  // // Handle the start event (triggered when dragging starts)
+  // const handleStart = (e, data) => {
+  //   console.log("Drag started", data);
+  // };
+
+  // // Handle the drag event (triggered while dragging)
+  // const handleDrag = (index) => (e, data) => {
+  //   console.log("Dragging", data);
+  //   setPositions((prev) => ({
+  //     ...prev,
+  //     [index]: { x: data.x, y: data.y },
+  //   }));
+  // };
+
+  const handleClick = (e) => {
+    const urls = [];
+
+    urls.push(e.target.src);
+    setIsEditing(false);
+
+    setCollage((prev) => [...prev, urls]);
   };
 
-  // Handle the drag event (triggered while dragging)
-  const handleDrag = (index) => (e, data) => {
-    console.log("Dragging", data);
-    setPositions((prev) => ({
-      ...prev,
-      [index]: { x: data.x, y: data.y },
-    }));
-  };
+  // // Handle the stop event (triggered when dragging stops)
+  // const handleStop = (e, data) => {
+  //   const newSrc = data.node.currentSrc.replace("150", "300");
 
-  console.log(positions);
+  //   console.log("Drag stopped", data, data.node, data.node.currentSrc, newSrc);
 
-  // Handle the stop event (triggered when dragging stops)
-  const handleStop = (e, data) => {
-    const newSrc = data.node.currentSrc.replace("150", "300");
+  //   const index = data.node.alt.split(" ")[1];
 
-    console.log("Drag stopped", data, data.node, data.node.currentSrc, newSrc);
+  //   setCollage((prev) => {
+  //     const newUrls = [...prev];
+  //     newUrls[index] = { url: newSrc, x: data.x, y: data.y };
+  //     return newUrls;
+  //   });
 
-    // const index = data.node.alt.split(" ")[1];
-    // console.log("index", index);
+  //   // remove the items that were beig dragged
 
-    // setCollage((prev) => {
-    //   const newUrls = [...prev];
-    //   newUrls[index] = { url: newSrc, x: data.x, y: data.y };
-    //   return newUrls;
-    // });
-  };
+  //   const filteredImages = imageUrls.filter(
+  //     (url) => url !== data.node.currentSrc
+  //   );
+
+  //   setImageUrls(filteredImages);
+  // };
   //   console.log("imageUrls", imageUrls);
 
   const generateRandomImages = (n) => {
@@ -51,50 +65,43 @@ export default function Album({ setCollage }) {
   };
 
   useEffect(() => {
-    setImageUrls(generateRandomImages(NUM_IMAGES));
+    const photos = generateRandomImages(NUM_IMAGES);
+    setImageUrls(photos);
 
-    // console.log(initialPositions);
-    // setPositions(initialPositions);
+    // const progressTimer1 = setTimeout(() => setProgress(50), 200);
+    // const progressTimer2 = setTimeout(() => {
+    //   if (photos.length === NUM_IMAGES) {
+    //     setProgress(100);
+    //   }
+    // }, 300);
+
+    // return () => {
+    //   clearTimeout(progressTimer1);
+    //   clearTimeout(progressTimer2);
+    // };
   }, []);
 
   return (
-    <div className="flex flex-wrap">
-      {imageUrls?.map((url, index) => (
-        <Draggable
-          key={index}
-          defaultPosition={{ x: 0, y: 0 }}
-          position={positions[index] || { x: 0, y: 0 }}
-          grid={[1, 1]}
-          scale={1}
-          onStart={handleStart}
-          onDrag={handleDrag(index)} // Pass index to track positions per image
-          onStop={handleStop}
-        >
+    <div className="w-full h-full">
+      {/* {progress !== 100 && (
+        <div className="flex justify-center items-center h-full">
+          <Progress value={progress} className="w-1/2" />{" "}
+        </div>
+      )} */}
+
+      {/* {progress === 100 && ( */}
+      <div className=" flex flex-wrap">
+        {imageUrls?.map((url, index) => (
           <img
             key={index}
             src={url}
             alt={`Image ${index}`}
-            className="cursor-grab"
             draggable={false}
+            onClick={handleClick}
           />
-        </Draggable>
-      ))}
+        ))}
+      </div>
+      {/* )} */}
     </div>
   );
 }
-
-// <Draggable
-//   //   axis="x"
-//   //   handle=".handle"
-//   defaultPosition={{ x: 0, y: 0 }}
-//   position={position}
-//   grid={[1, 1]}
-//   scale={1}
-//   onStart={handleStart}
-//   onDrag={handleDrag}
-//   onStop={handleStop}
-// >
-//   <div className="h-[400px] w-[500px] rounded-lg border border-black absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-
-//   </div>
-// </Draggable>

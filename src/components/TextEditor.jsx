@@ -1,31 +1,30 @@
-import ReactQuill from "react-quill";
-import "../quill.snow.css";
 import { useState } from "react";
+import Polaroid from "./Polaroid";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
-export default function TextEditor() {
-  const [value, setValue] = useState("");
-
-  // Modules configuration for toolbar
-  const modules = {
-    toolbar: [
-      ["bold", "italic", "underline"],
-      [{ color: [] }, { background: [] }], // dropdown with defaults from theme
-
-      [{ list: "ordered" }, { list: "bullet" }],
-      ["clean"], // Button to remove formatting
-    ],
-  };
-
-  console.log(value);
-
+export default function TextEditor({ openTextEditor = true, collage }) {
+  console.log("collage", collage);
   return (
-    <div className="m-2 shadow">
-      <ReactQuill
-        theme="snow"
-        value={value}
-        onChange={setValue}
-        modules={modules}
-      />
+    <div className="w-fit">
+      <Carousel>
+        <CarouselContent>
+          {collage?.map((url) => (
+            <CarouselItem key={url} className="basis-1/3 ">
+              <div className="flex items-center justify-center">
+                <Polaroid url={url} openTextEditor={openTextEditor} />
+              </div>
+            </CarouselItem>
+          ))}{" "}
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
     </div>
   );
 }
