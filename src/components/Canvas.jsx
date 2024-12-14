@@ -10,18 +10,22 @@ import {
 
 export default function Canvas({ setCollage, collage, isEditing }) {
   return (
-    <div className="max-h-content bg-white m-10">
-      <Carousel>
-        <CarouselContent>
-          {collage.map((url, index) => (
-            <CarouselItem key={index}>
-              <Polaroid isEditing url={url} />
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
-      </Carousel>
+    <div className="h-content bg-white m-10">
+      {collage.length ? (
+        <Carousel>
+          <CarouselContent>
+            {collage.map((url, index) => (
+              <CarouselItem key={index}>
+                <Polaroid isEditing url={url} />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
+      ) : (
+        <p className="text-center">Select photos to create Polaroid</p>
+      )}
     </div>
   );
 }

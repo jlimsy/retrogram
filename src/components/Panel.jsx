@@ -10,8 +10,8 @@ export default function Panel({
   openAlbum,
 }) {
   return (
-    <div className="flex justify-between items-center m-2  px-4">
-      <div>
+    <div className="grid grid-cols-3 m-2 px-4">
+      <div className="flex items-center">
         <Button
           size="sm"
           alt="previous"
@@ -33,7 +33,7 @@ export default function Panel({
         <Logo />
       </div>
 
-      <div className="flex items-center gap-4">
+      <div className="flex items-center justify-end gap-4">
         <Button
           alt="next"
           size="sm"

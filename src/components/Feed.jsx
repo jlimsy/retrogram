@@ -7,28 +7,15 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-export default function Feed() {
+export default function Feed({ collage }) {
   return (
     <Carousel>
       <CarouselContent>
-        <CarouselItem className="basis-1/3">
-          <Polaroid />
-        </CarouselItem>
-        <CarouselItem className="basis-1/3">
-          <Polaroid />
-        </CarouselItem>
-        <CarouselItem className="basis-1/3">
-          <Polaroid />
-        </CarouselItem>
-        <CarouselItem className="basis-1/3">
-          <Polaroid />
-        </CarouselItem>
-        <CarouselItem className="basis-1/3">
-          <Polaroid />
-        </CarouselItem>
-        <CarouselItem className="basis-1/3">
-          <Polaroid />
-        </CarouselItem>
+        {collage.map((url) => (
+          <CarouselItem key={url} className="basis-1/3">
+            <Polaroid url={url} />
+          </CarouselItem>
+        ))}
       </CarouselContent>
       <CarouselPrevious />
       <CarouselNext />

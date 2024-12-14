@@ -14,8 +14,6 @@ export default function Application() {
   const [openAlbum, setOpenAlbum] = useState(true);
   const [isEditing, setIsEditing] = useState(true);
 
-  console.log("collage", collage);
-
   return (
     <div className="flex flex-col ">
       <section className="h-content">
@@ -32,7 +30,7 @@ export default function Application() {
       <section className="flex-1 overflow-auto bg-[#f5e1a4]">
         {openFeed && (
           <div className="w-full">
-            <Feed />
+            <Feed collage={collage} />
           </div>
         )}
         {openTextEditor && <TextEditor openTextEditor collage={collage} />}

@@ -1,9 +1,11 @@
 import Browser from "./Browser";
 import DesktopTaskBar from "./DesktopTaskBar";
 import Draggable from "react-draggable";
+import Icon from "./Icon";
 import { useState } from "react";
 
 export default function Main() {
+  const [openBrowser, setOpenBrowser] = useState(true);
   const [position, setPosition] = useState({
     x: window.innerWidth / 2 - (window.innerWidth * 0.75) / 2, // Adjust based on element width
     y: window.innerHeight / 2 - (window.innerHeight * 0.75) / 2, // Adjust based on element height
@@ -24,10 +26,13 @@ export default function Main() {
     console.log("Drag stopped", data);
   };
   return (
-    <>
-      <header>
+    <div className="h-screen">
+      <header className="w-full fixed">
         <DesktopTaskBar />
       </header>
+
+      <Icon setOpenBrowser={setOpenBrowser} />
+
       <Draggable
         handle=".handle"
         defaultPosition={{ x: 0, y: 0 }}
@@ -37,11 +42,12 @@ export default function Main() {
         onStart={handleStart}
         onDrag={handleDrag}
         onStop={handleStop}
+        bounds="parent"
       >
         <main className="w-3/4 aspect-[3/4] md:aspect-video absolute  ">
-          <Browser />
+          {openBrowser && <Browser setOpenBrowser={setOpenBrowser} />}
         </main>
       </Draggable>
-    </>
+    </div>
   );
 }
