@@ -1,7 +1,7 @@
 export default function Canvas({ setCollage, collage }) {
   console.log("collage", collage);
   return (
-    <div className="h-96 border border-black">
+    <div className="h-full">
       {collage?.map((item, index) => (
         <img
           key={index}

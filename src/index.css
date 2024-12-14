@@ -71,4 +71,7 @@
   .box-border {
     @apply border-t-2 border-l-2 border-r-8 border-b-8 border-black ;
   }
+  .box-border-sm {
+    @apply border-t border-l border-r-4 border-b-4 border-black ;
+  }
 }

@@ -14,33 +14,34 @@ export default function Application() {
   const [openAlbum, setOpenAlbum] = useState(true);
 
   return (
-    <>
-      <Logo />
+    <div className="flex flex-col">
+      <section className="h-content">
+        <Logo />
+        <Panel
+          setOpenTextEditor={setOpenTextEditor}
+          openTextEditor={openTextEditor}
+          setOpenFeed={setOpenFeed}
+          openFeed={openFeed}
+          setOpenAlbum={setOpenAlbum}
+          openAlbum={openAlbum}
+        />
+      </section>
 
-      <Panel
-        setOpenTextEditor={setOpenTextEditor}
-        openTextEditor={openTextEditor}
-        setOpenFeed={setOpenFeed}
-        openFeed={openFeed}
-        setOpenAlbum={setOpenAlbum}
-        openAlbum={openAlbum}
-      />
-      {openFeed ? (
-        <Feed />
-      ) : (
-        <div>
-          <div>
-            <Canvas setCollage={setCollage} collage={collage} />
-            {openTextEditor || (
-              <div className="w-full">
-                <Album setCollage={setCollage} />
-              </div>
-            )}
+      <section className="flex-1 overflow-auto">
+        {openFeed ? (
+          <Feed />
+        ) : (
+          <div className="flex flex-rows-2">
+            <div className="h-96">
+              <Canvas setCollage={setCollage} collage={collage} />
+            </div>
+            <div className="flex-1">
+              {openTextEditor || <Album setCollage={setCollage} />}
+              {openTextEditor && <TextEditor />}
+            </div>
           </div>
-
-          {openTextEditor && <TextEditor />}
-        </div>
-      )}
-    </>
+        )}
+      </section>
+    </div>
   );
 }
