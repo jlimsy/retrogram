@@ -58,7 +58,7 @@ export default function Main() {
   };
   return (
     <div
-      className="h-screen bg-[#2d7ccb]
+      className="h-screen bg-[#ffffff];
 "
     >
       <header className="w-full fixed">
