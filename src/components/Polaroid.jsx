@@ -35,7 +35,11 @@ export default function Polaroid({
   };
 
   return (
-    <div className="min-h-96 max-h-[400px] aspect-[3/4] rounded box-border-sm p-4 bg-white">
+    <div
+      className={`h-96 lg:h-[400px] ${
+        openTextEditor && "h-[400px]"
+      } aspect-[3/4] rounded box-border-sm p-4 bg-white`}
+    >
       <div className="aspect-square border border-black shadow-inner">
         <img
           src={url}
@@ -55,7 +59,7 @@ export default function Polaroid({
           />
         )}
         <div
-          className="text-gray-700 mt-2"
+          className="text-gray-700 mt-2 text-wrap"
           dangerouslySetInnerHTML={{ __html: caption }}
         ></div>{" "}
       </div>

@@ -1,11 +1,13 @@
+import DesktopIcon from "../assets/icon.png";
+
 export default function Icon({ setOpenBrowser }) {
   return (
     <div
-      className="fixed flex flex-col items-center justify-center"
+      className="cursor-pointer absolute top-4 left-4 flex flex-col items-center justify-center"
       onClick={() => setOpenBrowser(true)}
     >
-      <img src="src/assets/logo.png" className="w-16" />
-      <p className="text-xs">retrogram.exe</p>
+      <img src={DesktopIcon} className="w-16" />
+      <p className="text-xs text-white">retrogram.exe</p>
     </div>
   );
 }

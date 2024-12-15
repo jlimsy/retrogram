@@ -13,6 +13,7 @@ import tommyAvatar from "../assets/avatars/tommy.png";
 import rickAvatar from "../assets/avatars/rick.png";
 import renaissanceAvatar from "../assets/avatars/renaissance.png";
 import myAvatar from "../assets/avatars/me.png";
+import captions from "../assets/captions.js";
 
 const mockUsers = [
   { name: "john_doe_vibes", avatar: johnAvatar },
@@ -31,9 +32,13 @@ export default function Feed({ collage }) {
     const urls = [];
 
     for (let i = 0; i < n; i++) {
-      urls.push(
-        `https://picsum.photos/200?random=${Math.floor(Math.random() * 1000)}`
-      );
+      urls.push({
+        url: `https://picsum.photos/200?random=${Math.floor(
+          Math.random() * 1000
+        )}`,
+
+        caption: captions[Math.floor(Math.random() * 100)],
+      });
     }
     return urls;
   };
@@ -49,6 +54,8 @@ export default function Feed({ collage }) {
 
     setUsers(usersWithPhotos);
   }, []);
+
+  console.log(users);
 
   return (
     <div className="flex flex-col gap-4">
@@ -95,7 +102,7 @@ export default function Feed({ collage }) {
                     key={index}
                     className="md:balacsis-1/3  lg:basis-1/3 flex items-center justify-center"
                   >
-                    <Polaroid url={photo} />
+                    <Polaroid url={photo.url} caption={photo.caption} />
                   </CarouselItem>
                 ))}
               </CarouselContent>
