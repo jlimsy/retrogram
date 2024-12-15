@@ -17,7 +17,7 @@ export default function TextEditor({
     <Carousel>
       <CarouselContent>
         {collage?.map((img) => (
-          <CarouselItem key={img.url} className="basis-1/3 ">
+          <CarouselItem key={img.url} className="md:basis-1/3 ">
             <div className="flex items-center justify-center">
               <Polaroid
                 url={img.url}

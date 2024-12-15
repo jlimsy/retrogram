@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 const NUM_IMAGES = 25;
 
-export default function Album({ setCollage, setIsEditing }) {
+export default function Album({ setCollage, setIsEditing, setIsDeveloping }) {
   // const [progress, setProgress] = useState(25);
   const [imageUrls, setImageUrls] = useState([]);
 
@@ -22,8 +22,18 @@ export default function Album({ setCollage, setIsEditing }) {
   // };
 
   const handleClick = (e) => {
+    setIsDeveloping(true);
     setIsEditing(false);
     setCollage((prev) => [...prev, { url: e.target.src, caption: "📸" }]);
+
+    const developingTimer = setTimeout(() => {
+      setIsDeveloping(false);
+    }, 3500); // 350 seconds = 350000 milliseconds
+
+    // Clean up timer
+    return () => {
+      clearTimeout(developingTimer);
+    };
   };
 
   // // Handle the stop event (triggered when dragging stops)

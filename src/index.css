@@ -60,7 +60,7 @@
 
 @layer base {
   * {
-    @apply border-border text-sm;
+    @apply border-border text-sm ;
   }
   body {
     @apply  text-foreground font-mono ;

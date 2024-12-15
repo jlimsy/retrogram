@@ -57,7 +57,10 @@ export default function Main() {
     console.log("Drag stopped", data);
   };
   return (
-    <div className="h-screen">
+    <div
+      className="h-screen bg-[#2d7ccb]
+"
+    >
       <header className="w-full fixed">
         <DesktopTaskBar />
       </header>

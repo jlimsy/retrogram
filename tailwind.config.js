@@ -6,10 +6,11 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        retro: ["Great Vibes", "monospace"],
+        retro: ["Lobster", "Great Vibes", "monospace"],
       },
       backgroundImage: {
         ig: "linear-gradient(90deg, #ffdc80 0%, #fcaf45 20%, #e1306c 50%, #833ab4 75%, #405de6 100%)",
+        igr: "linear-gradient(270deg, #ffdc80 0%, #fcaf45 20%, #e1306c 50%, #833ab4 75%, #405de6 100%)",
       },
       colors: {
         border: "hsl(var(--border))",

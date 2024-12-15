@@ -11,7 +11,7 @@ export default function Panel({
   openAlbum,
 }) {
   return (
-    <div className="grid grid-cols-3 m-2 px-4">
+    <div className="grid grid-cols-3 m-2 px-4 bg-white">
       <div className="flex items-center">
         <Button
           size="sm"
@@ -30,7 +30,14 @@ export default function Panel({
         </Button>
       </div>
 
-      <div onClick={() => setOpenFeed(true)}>
+      <div
+        onClick={() => {
+          setOpenFeed(true);
+          setOpenAlbum(false);
+          setOpenTextEditor(false);
+        }}
+        className="text-transparent bg-igr bg-clip-text hover:text-transparent hover:bg-clip-text hover:bg-ig "
+      >
         <Logo />
       </div>
 

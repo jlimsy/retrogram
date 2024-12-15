@@ -9,15 +9,15 @@ export default function Polaroid({
   isEditing = false,
   url,
   caption,
+  openAlbum,
 }) {
-  const [value, setValue] = useState("Input caption here");
+  const [value, setValue] = useState("📸");
 
   const modules = {
     toolbar: [
       ["bold", "italic", "underline"],
       [{ color: [] }, { background: [] }], // dropdown with defaults from theme
 
-      [{ list: "ordered" }, { list: "bullet" }],
       ["clean"], // Button to remove formatting
     ],
   };
@@ -37,7 +37,12 @@ export default function Polaroid({
   return (
     <div className="min-h-96 max-h-[400px] aspect-[3/4] rounded box-border-sm p-4 bg-white">
       <div className="aspect-square border border-black shadow-inner">
-        <img src={url} className="h-full w-full object-cover animate-develop" />
+        <img
+          src={url}
+          className={`h-full w-full object-cover ${
+            openAlbum && "animate-develop"
+          }`}
+        />
       </div>
       <div className="min-h-24 max-h-44 text-sm text-gray-700 mt-2 overflow-auto">
         {openTextEditor && (
