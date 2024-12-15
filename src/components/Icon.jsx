@@ -6,8 +6,8 @@ export default function Icon({ setOpenBrowser }) {
       className="cursor-pointer absolute top-4 left-4 flex flex-col items-center justify-center"
       onClick={() => setOpenBrowser(true)}
     >
-      <img src={DesktopIcon} className="w-16" />
-      <p className="text-xs text-white">retrogram.exe</p>
+      <img src={DesktopIcon} className="w-16 " />
+      <p className="text-xs text-gray-800">retrogram.exe</p>
     </div>
   );
 }

@@ -58,10 +58,10 @@ export default function Main() {
   };
   return (
     <div
-      className="h-screen bg-[url('/windows99.png')] bg-center bg-cover
+      className="h-screen bg-blue-300
 "
     >
-      <header className="w-full fixed">
+      <header className="w-full fixed bottom-0 bg-gray-400 border-t border-l border-r-4 border-b-4 border-b-gray-500">
         <DesktopTaskBar />
       </header>
 

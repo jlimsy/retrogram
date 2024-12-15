@@ -1,6 +1,6 @@
 export default function DesktopTaskBar() {
   return (
-    <div className="h-8 flex justify-end">
+    <div className="h-10 flex justify-end items-center gap-4 mr-4">
       <a href="https://github.com/jlimsy/retrogram" target="_blank">
         <img
           src="https://unpkg.com/pixelarticons@1.8.1/svg/github.svg"
