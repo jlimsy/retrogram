@@ -3,14 +3,14 @@ import "../quill.snow.css";
 import { useState } from "react";
 
 export default function Polaroid({
+  collage,
+  setCollage,
   openTextEditor,
   isEditing = false,
   url,
   caption,
 }) {
-  const [value, setValue] = useState({});
-
-  console.log("url", url);
+  const [value, setValue] = useState("Input caption here");
 
   const modules = {
     toolbar: [
@@ -23,8 +23,15 @@ export default function Polaroid({
   };
 
   const handleChange = (e) => {
-    setValue((prev) => ({ ...prev, caption: e }));
-    console.log("e", e);
+    const updatedCollage = collage.map((item) => {
+      if (item.url === url) {
+        return { ...item, caption: e };
+      }
+      return item;
+    });
+
+    setCollage(updatedCollage);
+    setValue(e);
   };
 
   return (
@@ -38,10 +45,14 @@ export default function Polaroid({
             theme="snow"
             value={value}
             onChange={(e) => handleChange(e)}
+            onFocus={() => setValue("")}
             modules={modules}
           />
         )}
-        <p>{caption}</p>
+        <div
+          className="text-gray-700 mt-2"
+          dangerouslySetInnerHTML={{ __html: caption }}
+        ></div>{" "}
       </div>
     </div>
   );

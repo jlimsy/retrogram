@@ -8,15 +8,23 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-export default function TextEditor({ openTextEditor = true, collage }) {
-  console.log("collage in texteditor", collage);
+export default function TextEditor({
+  openTextEditor = true,
+  setCollage,
+  collage,
+}) {
   return (
     <Carousel>
       <CarouselContent>
         {collage?.map((img) => (
           <CarouselItem key={img.url} className="basis-1/3 ">
             <div className="flex items-center justify-center">
-              <Polaroid url={img.url} openTextEditor={openTextEditor} />
+              <Polaroid
+                url={img.url}
+                openTextEditor={openTextEditor}
+                collage={collage}
+                setCollage={setCollage}
+              />
             </div>
           </CarouselItem>
         ))}{" "}

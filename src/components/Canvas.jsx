@@ -1,5 +1,5 @@
 import Polaroid from "./Polaroid";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   Carousel,
   CarouselContent,
@@ -7,13 +7,21 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 export default function Canvas({ collage, isEditing }) {
-  console.log("collage", collage);
   return (
     <div className="h-content bg-white m-10 ">
       {collage.length > 0 ? (
-        <Carousel>
+        <Carousel
+          plugins={[
+            Autoplay({
+              delay: 250,
+              loop: false,
+              stopOnLastSnap: true,
+            }),
+          ]}
+        >
           <CarouselContent>
             {collage.map((img, index) => (
               <CarouselItem

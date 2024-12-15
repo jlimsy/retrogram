@@ -36,7 +36,11 @@ export default function Application() {
         )}
         {openTextEditor && (
           <div className="m-14">
-            <TextEditor openTextEditor collage={collage} />
+            <TextEditor
+              openTextEditor
+              setCollage={setCollage}
+              collage={collage}
+            />
           </div>
         )}
 
