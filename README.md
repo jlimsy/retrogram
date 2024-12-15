@@ -23,3 +23,8 @@ Color palette: https://app.uxcel.com/lessons/social-networks--messengers-color-p
 
 - [React-Draggable](https://www.npmjs.com/package/react-draggable)
 - [ReactQuill](https://www.npmjs.com/package/react-quill)
+
+### Resources:
+
+- Images: [Lorem Picsum](https://picsum.photos/)
+- Pixel Icons: [Pixelarticons](https://pixelarticons.com/)

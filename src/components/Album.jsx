@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 // import { Progress } from "@/components/ui/progress";
 
-const NUM_IMAGES = 15;
+const NUM_IMAGES = 25;
 
 export default function Album({ setCollage, setIsEditing }) {
   // const [progress, setProgress] = useState(25);
@@ -90,7 +90,7 @@ export default function Album({ setCollage, setIsEditing }) {
       )} */}
 
       {/* {progress === 100 && ( */}
-      <div className=" flex flex-wrap">
+      <div className="flex flex-wrap overflow-auto">
         {imageUrls?.map((url, index) => (
           <img
             key={index}
@@ -98,6 +98,7 @@ export default function Album({ setCollage, setIsEditing }) {
             alt={`Image ${index}`}
             draggable={false}
             onClick={handleClick}
+            className="h-32 md:h-52 aspect-square"
           />
         ))}
       </div>

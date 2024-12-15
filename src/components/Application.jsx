@@ -29,11 +29,15 @@ export default function Application() {
 
       <section className="flex-1 overflow-auto bg-[#f5e1a4]">
         {openFeed && (
-          <div className="w-full">
+          <div className="m-14">
             <Feed collage={collage} />
           </div>
         )}
-        {openTextEditor && <TextEditor openTextEditor collage={collage} />}
+        {openTextEditor && (
+          <div className="m-14">
+            <TextEditor openTextEditor collage={collage} />
+          </div>
+        )}
 
         {openAlbum && (
           <div className="flex flex-col md:grid md:grid-cols-3">
