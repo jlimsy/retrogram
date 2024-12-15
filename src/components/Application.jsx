@@ -15,7 +15,7 @@ export default function Application() {
   const [isEditing, setIsEditing] = useState(true);
 
   return (
-    <div className="flex flex-col ">
+    <div className="flex flex-col h-full">
       <section className="h-content">
         <Panel
           setOpenTextEditor={setOpenTextEditor}
@@ -40,15 +40,15 @@ export default function Application() {
         )}
 
         {openAlbum && (
-          <div className="flex flex-col md:grid md:grid-cols-3">
-            <div className="md:col-span-1 border border-black bg-white overflow-auto">
+          <div className="flex flex-col md:grid md:grid-cols-3 h-full">
+            <div className="md:col-span-1 border border-black bg-white">
               <Canvas
                 setCollage={setCollage}
                 collage={collage}
                 isEditing={isEditing}
               />
             </div>
-            <div className="md:col-span-2 border border-black bg-white">
+            <div className="md:col-span-2 border border-black bg-white h-full overflow-y-scroll">
               <Album
                 setCollage={setCollage}
                 isEditing={isEditing}

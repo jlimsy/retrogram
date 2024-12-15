@@ -82,7 +82,7 @@ export default function Album({ setCollage, setIsEditing }) {
   }, []);
 
   return (
-    <div className="w-full h-full">
+    <div className="w-full  overflow-auto">
       {/* {progress !== 100 && (
         <div className="flex justify-center items-center h-full">
           <Progress value={progress} className="w-1/2" />{" "}
@@ -90,7 +90,7 @@ export default function Album({ setCollage, setIsEditing }) {
       )} */}
 
       {/* {progress === 100 && ( */}
-      <div className="flex flex-wrap overflow-auto">
+      <div className="flex flex-wrap">
         {imageUrls?.map((url, index) => (
           <img
             key={index}
