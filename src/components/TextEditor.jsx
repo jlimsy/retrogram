@@ -9,13 +9,14 @@ import {
 } from "@/components/ui/carousel";
 
 export default function TextEditor({ openTextEditor = true, collage }) {
+  console.log("collage in texteditor", collage);
   return (
     <Carousel>
       <CarouselContent>
-        {collage?.map((url) => (
-          <CarouselItem key={url} className="basis-1/3 ">
+        {collage?.map((img) => (
+          <CarouselItem key={img.url} className="basis-1/3 ">
             <div className="flex items-center justify-center">
-              <Polaroid url={url} openTextEditor={openTextEditor} />
+              <Polaroid url={img.url} openTextEditor={openTextEditor} />
             </div>
           </CarouselItem>
         ))}{" "}

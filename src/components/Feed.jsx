@@ -11,9 +11,9 @@ export default function Feed({ collage }) {
   return (
     <Carousel>
       <CarouselContent>
-        {collage.map((url) => (
-          <CarouselItem key={url} className="basis-1/3">
-            <Polaroid url={url} />
+        {collage.map((img) => (
+          <CarouselItem key={img.url} className="basis-1/3">
+            <Polaroid url={img.url} caption={img.caption} />
           </CarouselItem>
         ))}
       </CarouselContent>

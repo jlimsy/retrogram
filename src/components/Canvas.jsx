@@ -8,18 +8,19 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-export default function Canvas({ setCollage, collage, isEditing }) {
+export default function Canvas({ collage, isEditing }) {
+  console.log("collage", collage);
   return (
     <div className="h-content bg-white m-10 ">
       {collage.length > 0 ? (
         <Carousel>
           <CarouselContent>
-            {collage.map((url, index) => (
+            {collage.map((img, index) => (
               <CarouselItem
                 key={index}
                 className="flex items-center justify-center"
               >
-                <Polaroid isEditing url={url} />
+                <Polaroid isEditing url={img.url} />
               </CarouselItem>
             ))}
           </CarouselContent>

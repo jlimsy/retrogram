@@ -43,11 +43,7 @@ export default function Application() {
         {openAlbum && (
           <div className="flex flex-col md:grid md:grid-cols-3 h-full">
             <div className="md:col-span-1 border border-black bg-white">
-              <Canvas
-                setCollage={setCollage}
-                collage={collage}
-                isEditing={isEditing}
-              />
+              <Canvas collage={collage} isEditing={isEditing} />
             </div>
             <div className="md:col-span-2 border border-black bg-white h-full overflow-y-scroll">
               <Album

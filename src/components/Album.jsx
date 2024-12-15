@@ -22,12 +22,8 @@ export default function Album({ setCollage, setIsEditing }) {
   // };
 
   const handleClick = (e) => {
-    const urls = [];
-
-    urls.push(e.target.src);
     setIsEditing(false);
-
-    setCollage((prev) => [...prev, urls]);
+    setCollage((prev) => [...prev, { url: e.target.src, caption: "🦐" }]);
   };
 
   // // Handle the stop event (triggered when dragging stops)

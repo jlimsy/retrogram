@@ -2,8 +2,15 @@ import ReactQuill from "react-quill";
 import "../quill.snow.css";
 import { useState } from "react";
 
-export default function Polaroid({ openTextEditor, isEditing = false, url }) {
-  const [value, setValue] = useState("");
+export default function Polaroid({
+  openTextEditor,
+  isEditing = false,
+  url,
+  caption,
+}) {
+  const [value, setValue] = useState({});
+
+  console.log("url", url);
 
   const modules = {
     toolbar: [
@@ -13,6 +20,11 @@ export default function Polaroid({ openTextEditor, isEditing = false, url }) {
       [{ list: "ordered" }, { list: "bullet" }],
       ["clean"], // Button to remove formatting
     ],
+  };
+
+  const handleChange = (e) => {
+    setValue((prev) => ({ ...prev, caption: e }));
+    console.log("e", e);
   };
 
   return (
@@ -25,10 +37,11 @@ export default function Polaroid({ openTextEditor, isEditing = false, url }) {
           <ReactQuill
             theme="snow"
             value={value}
-            onChange={setValue}
+            onChange={(e) => handleChange(e)}
             modules={modules}
           />
         )}
+        <p>{caption}</p>
       </div>
     </div>
   );
