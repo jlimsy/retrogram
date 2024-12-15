@@ -10,12 +10,15 @@ import {
 
 export default function Canvas({ setCollage, collage, isEditing }) {
   return (
-    <div className="h-content bg-white m-10">
-      {collage.length ? (
+    <div className="h-content bg-white m-10 ">
+      {collage.length > 0 ? (
         <Carousel>
           <CarouselContent>
             {collage.map((url, index) => (
-              <CarouselItem key={index}>
+              <CarouselItem
+                key={index}
+                className="flex items-center justify-center"
+              >
                 <Polaroid isEditing url={url} />
               </CarouselItem>
             ))}

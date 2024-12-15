@@ -18,6 +18,7 @@ export default function Application() {
     <div className="flex flex-col h-full">
       <section className="h-content">
         <Panel
+          collage={collage}
           setOpenTextEditor={setOpenTextEditor}
           openTextEditor={openTextEditor}
           setOpenFeed={setOpenFeed}

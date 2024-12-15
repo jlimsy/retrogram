@@ -2,6 +2,7 @@ import { Button } from "./ui/button";
 import Logo from "./Logo";
 
 export default function Panel({
+  collage,
   setOpenTextEditor,
   openTextEditor,
   setOpenFeed,
@@ -34,21 +35,24 @@ export default function Panel({
       </div>
 
       <div className="flex items-center justify-end gap-4">
-        <Button
-          alt="next"
-          size="sm"
-          variant="ghost"
-          className={`${openAlbum ? "inline-block" : "hidden"}`}
-          onClick={() => {
-            setOpenTextEditor(true);
-            setOpenAlbum(false);
-          }}
-        >
-          <img
-            src="https://unpkg.com/pixelarticons@1.8.1/svg/arrow-right.svg"
-            className="h-8 w-8"
-          />
-        </Button>
+        {collage.length > 0 && (
+          <Button
+            alt="next"
+            size="sm"
+            variant="ghost"
+            className={`${openAlbum ? "inline-block" : "hidden"}`}
+            onClick={() => {
+              setOpenTextEditor(true);
+              setOpenAlbum(false);
+            }}
+          >
+            <img
+              src="https://unpkg.com/pixelarticons@1.8.1/svg/arrow-right.svg"
+              className="h-8 w-8"
+            />
+          </Button>
+        )}
+
         <Button
           alt="post"
           size="sm"
