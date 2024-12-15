@@ -58,7 +58,7 @@ export default function Main() {
   };
   return (
     <div
-      className="h-screen bg-[#ffffff];
+      className="h-screen bg-[url('/windows99.png')] bg-center bg-cover
 "
     >
       <header className="w-full fixed">
