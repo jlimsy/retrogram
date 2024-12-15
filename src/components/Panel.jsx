@@ -30,7 +30,7 @@ export default function Panel({
         </Button>
       </div>
 
-      <div>
+      <div onClick={() => setOpenFeed(true)}>
         <Logo />
       </div>
 

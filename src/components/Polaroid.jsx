@@ -37,7 +37,7 @@ export default function Polaroid({
   return (
     <div className="min-h-96 max-h-[400px] aspect-[3/4] rounded box-border-sm p-4 bg-white">
       <div className="aspect-square border border-black shadow-inner">
-        <img src={url} className="h-full w-full object-cover" />
+        <img src={url} className="h-full w-full object-cover animate-develop" />
       </div>
       <div className="min-h-24 max-h-44 text-sm text-gray-700 mt-2 overflow-auto">
         {openTextEditor && (

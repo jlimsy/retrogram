@@ -36,7 +36,7 @@ export default function Canvas({ collage, isEditing }) {
           <CarouselNext />
         </Carousel>
       ) : (
-        <p className="text-center">Select photos to create Polaroid</p>
+        <p className="text-center">Select photos to develop your Polaroids!</p>
       )}
     </div>
   );

@@ -3,6 +3,7 @@ import DesktopTaskBar from "./DesktopTaskBar";
 import Draggable from "react-draggable";
 import Icon from "./Icon";
 import { useState, useEffect } from "react";
+import Instructions from "./Instructions";
 
 export default function Main() {
   const [openBrowser, setOpenBrowser] = useState(true);
@@ -74,10 +75,14 @@ export default function Main() {
         onStop={handleStop}
         bounds="parent"
       >
-        <main className="w-3/4 aspect-[3/4] md:aspect-video absolute  ">
-          {openBrowser && <Browser setOpenBrowser={setOpenBrowser} />}
+        <main className="w-3/4 aspect-[3/4] md:aspect-video absolute z-200 ">
+          {openBrowser && <Browser setOpenBrowser={setOpenBrowser} />}{" "}
         </main>
       </Draggable>
+
+      {/* <div className="relative z-0 ">
+        <Instructions />
+      </div> */}
     </div>
   );
 }

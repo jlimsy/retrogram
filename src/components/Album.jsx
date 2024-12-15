@@ -23,7 +23,7 @@ export default function Album({ setCollage, setIsEditing }) {
 
   const handleClick = (e) => {
     setIsEditing(false);
-    setCollage((prev) => [...prev, { url: e.target.src, caption: "🦐" }]);
+    setCollage((prev) => [...prev, { url: e.target.src, caption: "📸" }]);
   };
 
   // // Handle the stop event (triggered when dragging stops)
@@ -51,13 +51,13 @@ export default function Album({ setCollage, setIsEditing }) {
   //   console.log("imageUrls", imageUrls);
 
   const generateRandomImages = (n) => {
-    const url = [];
+    const urls = [];
 
     for (let i = 0; i < n; i++) {
-      url.push(`https://picsum.photos/200?random=${i}`);
+      urls.push(`https://picsum.photos/200?random=${i}`);
     }
 
-    return url;
+    return urls;
   };
 
   useEffect(() => {
@@ -94,7 +94,7 @@ export default function Album({ setCollage, setIsEditing }) {
             alt={`Image ${index}`}
             draggable={false}
             onClick={handleClick}
-            className="h-32 md:h-52 aspect-square"
+            className="h-32 md:h-52 aspect-square hover:border-4"
           />
         ))}
       </div>
