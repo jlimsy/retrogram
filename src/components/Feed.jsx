@@ -61,7 +61,7 @@ export default function Feed({ collage }) {
     <div className="flex flex-col gap-4">
       {collage.length > 0 && (
         <div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 m-4">
             <img
               src={myAvatar}
               className="h-12 aspect-square rounded-full object-cover"
@@ -88,7 +88,7 @@ export default function Feed({ collage }) {
       <div className="flex flex-col gap-6 ">
         {users.map((user) => (
           <div key={user.name}>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 m-4">
               <img
                 src={user.avatar}
                 className="h-12 aspect-square rounded-full object-cover"

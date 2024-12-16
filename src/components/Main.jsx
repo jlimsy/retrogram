@@ -57,16 +57,12 @@ export default function Main() {
     console.log("Drag stopped", data);
   };
   return (
-    <div
-      className="h-screen bg-blue-300
-"
-    >
+    <div className="h-screen bg-blue-300 bg-[url('/plaid.jpg')] bg-cover bg-no-repeat bg-center object-fit">
+      {" "}
       <header className="w-full fixed bottom-0 bg-gray-400 border-t border-l border-r-4 border-b-4 border-b-gray-500">
         <DesktopTaskBar />
       </header>
-
       <Icon setOpenBrowser={setOpenBrowser} />
-
       <Draggable
         handle=".handle"
         defaultPosition={{ x: 0, y: 0 }}
@@ -82,7 +78,6 @@ export default function Main() {
           {openBrowser && <Browser setOpenBrowser={setOpenBrowser} />}{" "}
         </main>
       </Draggable>
-
       {/* <div className="relative z-0 ">
         <Instructions />
       </div> */}
