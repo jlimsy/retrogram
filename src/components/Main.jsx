@@ -57,8 +57,7 @@ export default function Main() {
     console.log("Drag stopped", data);
   };
   return (
-    <div className="h-screen bg-blue-300 bg-[url('/plaid.jpg')] bg-cover bg-no-repeat bg-center object-fit">
-      {" "}
+    <div className="h-screen bg-blue-300 bg-[url('/plaid.png')] bg-cover bg-no-repeat bg-center object-fit">
       <header className="w-full fixed bottom-0 bg-gray-400 border-t border-l border-r-4 border-b-4 border-b-gray-500">
         <DesktopTaskBar />
       </header>
