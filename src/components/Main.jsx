@@ -12,8 +12,8 @@ export default function Main() {
     height: window.innerHeight,
   });
   const [position, setPosition] = useState({
-    x: window.innerWidth / 2 - (window.innerWidth * 0.75) / 2, // Adjust based on element width
-    y: window.innerHeight / 2 - (window.innerHeight * 0.75) / 2, // Adjust based on element height
+    x: (window.innerWidth - window.innerWidth * 0.75) / 2,
+    y: (window.innerHeight - window.innerHeight * 0.75) / 2,
   });
 
   // Resize window function
@@ -40,6 +40,8 @@ export default function Main() {
 
     return () => window.removeEventListener("resize", resizeWindow);
   }, []);
+
+  console.log("windowSize", windowSize, position);
 
   // Handle the start event (triggered when dragging starts)
   const handleStart = (e, data) => {
@@ -73,7 +75,13 @@ export default function Main() {
         onStop={handleStop}
         bounds="parent"
       >
-        <main className="w-3/4 aspect-[3/4] md:aspect-video absolute z-200 ">
+        <main
+          className="w-3/4 aspect-[3/4] md:aspect-video absolute z-200 "
+          style={{
+            width: windowSize.width,
+            height: windowSize.height,
+          }}
+        >
           {openBrowser && <Browser setOpenBrowser={setOpenBrowser} />}{" "}
         </main>
       </Draggable>
